@@ -6,7 +6,9 @@ var Types = keystone.Field.Types;
  * ==========
  */
 var Personas = new keystone.List('Personas', {
-	map: { name: 'name' },
+  map: { name: 'name' },
+  singular:'Persona',
+  plural:'Personas',
 	autokey: { path: 'slug', from: 'name', unique: true },
 });
 

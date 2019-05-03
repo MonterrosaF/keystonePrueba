@@ -1,0 +1,17 @@
+extends ../layouts/default
+
+block content
+	.container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2.jumbotron
+		article
+			p: a(href='/personas') &larr; Volver a la pagina de los personajes
+			hr
+			if !data.persona
+				h2 Personaje Invalido.
+			else
+				header
+					h1= data.persona.name.first + '' + data.persona.name.last
+					ul: .list-group
+					li(.list-group-item style={color: black}) <b> Height </b> #{data.persona.height}
+					li(.list-group-item style={color: black}) <b> Mass </b> #{data.persona.mass}
+					li(.list-group-item style={color: black}) <b> Gender </b> #{data.persona.gender}
+						

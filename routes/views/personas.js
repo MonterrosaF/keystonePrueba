@@ -7,26 +7,29 @@ exports = module.exports = function (req, res) {
 
   // Set locals
   locals.section = 'personas';
-  locals.filters = {
-    post: req.params.personas,
-  };
-  locals.data = {
-    posts: [],
-  };
+  // locals.filters = {
+  //   post: req.params.page,
+  // };
+  // locals.data = {
+  //   posts: [],
+  // };
+
+  view.query('personas', keystone.list('Personas').model.find());
+
 
   // Load the current post
-  view.on('init', function (next) {
+  // view.on('init', function (next) {
 
-    var q = keystone.list('Personas').model.findOne({
-      slug: locals.filters.post,
-    });
+  //   var q = keystone.list('Personas').model.findOne({
+  //     slug: locals.filters.post,
+  //   });
 
-    q.exec(function (err, result) {
-      locals.data.post = result;
-      next(err);
-    });
+  //   q.exec(function (err, result) {
+  //     locals.data.post = result;
+  //     next(err);
+  //   });
 
-  });
+  // });
 
   // Render the view
   view.render('personas');

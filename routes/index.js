@@ -56,7 +56,8 @@ exports = module.exports = function (app) {
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
 	app.get('/pages/:page', routes.views.page);
-	app.get('/personas/', routes.views.personas);
+	app.get('/personas/:persona', routes.views.persona);
+	app.get('/personas', routes.views.personas);
 	app.all('/contact', routes.views.contact);
 
 	// API

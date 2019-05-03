@@ -1,15 +1,26 @@
+//- extends ../layouts/default
+
+//- block content
+//- 	.container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+//- 		article
+//- 			p: a(href='/blog') &larr; back to the blog
+//- 			hr
+//- 			if !data.post
+//- 				h2 Invalid Personas.
+//- 			else
+//- 				header
+//- 					h1= data.personas.name
+                    
+//- 				.post
 extends ../layouts/default
 
 block content
-	.container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
-		article
-			p: a(href='/blog') &larr; back to the blog
-			hr
-			if !data.Personas
-				h2 Invalid Personas.
-			else
-				header
-					h1= data.personas.name
-                    
-				.post
-					
+	.container
+		h1 Personas
+		.row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+			.row
+				each cat, i in personas
+					.col-md-12.col-lg-12
+						hr
+						h2: a(href='/personas/' + personas[i].slug) #{personas[i].name.first} #{personas[i].name.last}
+						hr
